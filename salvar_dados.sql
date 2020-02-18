@@ -1,0 +1,3 @@
+#-- Inserção de Dados no Banco
+insert into alunos (nome, data_nascimento, idade, CPF, RG_identidade, Nome_pai, Nome_mae, Endereco, Numero, Cidade, Estado, Bairro, Celular, Chamarpor, Alergia, Grupo_Sangue, Doador) values ("Guilherme", "2002/03/28", "17", "496.807.898-61", "55.702.106-6", "Marcelo", "Denise", "Rua Barão Nicolino", "369", "São Paulo", "SP", "Campo Limpo", "(11)944921740", "Vieira", "Pó", "A+", "1");
+select * from alunos;
