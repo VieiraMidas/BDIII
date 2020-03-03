@@ -1,0 +1,3 @@
+CREATE DATABASE  Sistema_Academico_Etec_Heliópolis;
+ 
+USE Sistema_Academico_Etec_Heliópolis;

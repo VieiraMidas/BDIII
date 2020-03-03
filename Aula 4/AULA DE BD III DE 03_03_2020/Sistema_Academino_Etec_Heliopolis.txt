@@ -1,0 +1,128 @@
+CREATE DATABASE  `Sistema_Academico_Etec_Heliópolis` 
+USE `Sistema_Academico_Etec_Heliópolis`;
+
+CREATE TABLE `alocacoes` (
+  `Codigo_Professor_Aloca` int(4) NOT NULL,
+  `Codigo_Turma_Aloca` int(4) NOT NULL,
+  PRIMARY KEY (`Codigo_Professor_Aloca`,`Codigo_Turma_Aloca`),
+  KEY `Codigo_Turma_Aloca` (`Codigo_Turma_Aloca`),
+  CONSTRAINT `alocacoes_ibfk_1` FOREIGN KEY (`Codigo_Professor_Aloca`) REFERENCES `professores` (`Codigo`),
+  CONSTRAINT `alocacoes_ibfk_2` FOREIGN KEY (`Codigo_Turma_Aloca`) REFERENCES `turmas` (`Codigo_Turma`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `alunos` (
+  `Matricula` int(11) NOT NULL,
+  `Nome` varchar(40) NOT NULL,
+  `Data_Nascimento` date NOT NULL,
+  `Idade` int(4) NOT NULL,
+  `CPF` varchar(14) DEFAULT NULL,
+  `RG_Identidade` varchar(20) DEFAULT NULL,
+  `Nome_Pai` varchar(40) NOT NULL,
+  `Nome_Mae` varchar(40) NOT NULL,
+  `Endereco` varchar(50) NOT NULL,
+  `Numero` int(4) NOT NULL,
+  `Cidade` varchar(35) NOT NULL,
+  `Estado` char(2) NOT NULL,
+  `Bairro` varchar(40) NOT NULL,
+  `Telefone` varchar(30) DEFAULT NULL,
+  `Celular` varchar(30) DEFAULT NULL,
+  `Chamarpor` varchar(30) DEFAULT NULL,
+  `Alergia` varchar(30) DEFAULT NULL,
+  `Grupo_Sangue` varchar(10) DEFAULT NULL,
+  `Doador` int(4) DEFAULT NULL,
+  PRIMARY KEY (`Matricula`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `alunos` VALUES (23000,'PEDRO ANTONIO SILVA','1997-02-28',22,'100.526.878-78','18.528.639','PEDRO SILVA','MARIA SILVA','RUA TREZE DE MAIO',352,'VALINHOS','SP','CENTRO','19 2627-2325','19 99999-8888','PEDRINHO','DERIVADOS DE LEITE','o+',2);
+
+INSERT INTO `alunos` VALUES (23001,'MARCOS SILVA','1998-03-26',21,'100.526.999-71','17.529.640','JOSÉ SILVA','MARIANA SILVA','RUA DOIS DE MAIO',150,'VALINHOS','SP','CENTRO','19 2627-2525','19 99999-7777','PANO','DERIVADOS DE LEITE','o-',2);
+
+INSERT INTO `alunos` VALUES (23002,'ANTONIO SILVA','1998-04-15',21,'100.526.777-72','17.345.645','JAIR SILVA','MARTA SILVA','RUA DOIS DE MAIO',180,'VALINHOS','SP','CENTRO','19 2627-2727','19 99999-1111','PAIO','DERIVADOS DE LEITE','A-',2);
+
+INSERT INTO ALUNOS VALUES(12000,'PEDRO SILVA','1974-12-01',44,'10234567818','12345978-X',
+'MARCOS SILVA','MARIA SILVA','RUA DOS MARMITEIROS',123,'SÃO PAULO','SP','VILA MARIANA',
+'11-2233-3456','11-99988-5656','PEDRINHO','LACTOSE','O+',1);
+  
+INSERT INTO ALUNOS VALUES(12034,'ANA SILVA','1975-11-01',43,'10256767819','12347979-X',
+'MARCOS SILVA','MARIA SILVA','RUA DOS MARMITEIROS',123,'SÃO PAULO','SP','VILA MARIANA',
+'11-2233-3456','11-99988-5656','ANINHA','LACTOSE','O-',1);
+
+INSERT INTO ALUNOS VALUES(12123,'CARLOS MOREIRA','1976-12-01',43,'10234523420','12348777-X',
+'ANTONIO MOREIRA','ANA MARIA MOREIRA','RUA DOS ALFACES',1123,'SÃO PAULO','SP','VILA PEDREIRA',
+'11-5233-3466','11-99988-1212','KAKA','LACTOSE','O-',1);
+
+INSERT INTO ALUNOS VALUES(12124,'CARLOS PEDROSA SILVA','1976-10-02',43,'10234500232','12352777-X',
+'JOÃO MOREIRA','ANA TEREZA MOREIRA','RUA DOS TOMATES',1125,'SÃO PAULO','SP','VILA DOS NADADORES',
+'11-5233-3577','11-99988-1313','PEPE','LACTOSE','A-',1);
+
+select * from alunos
+
+CREATE TABLE `matriculas` (
+  `Mat_Aluno` int(11) NOT NULL,
+  `Cod_Turma` int(4) NOT NULL,
+  `Valor` float(9,2) NOT NULL,
+  `Data` date NOT NULL,
+  PRIMARY KEY (`Mat_Aluno`,`Cod_Turma`),
+  KEY `Cod_Turma` (`Cod_Turma`),
+  CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`Mat_Aluno`) REFERENCES `alunos` (`Matricula`),
+  CONSTRAINT `matriculas_ibfk_2` FOREIGN KEY (`Cod_Turma`) REFERENCES `turmas` (`Codigo_Turma`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `professores` (
+  `Codigo` int(4) NOT NULL,
+  `Nome` varchar(40) NOT NULL,
+  `Data_Nascimento` date NOT NULL,
+  `Idade` int(4) NOT NULL,
+  `CPF` varchar(14) NOT NULL,
+  `RG_Identidade` varchar(20) NOT NULL,
+  `CTPS` varchar(20) NOT NULL,
+  `Graduacao` varchar(30) NOT NULL,
+  `Estado_Civil` varchar(25) NOT NULL,
+  `Filhos` int(4) NOT NULL,
+  `Endereco` varchar(50) NOT NULL,
+  `Numero` int(4) NOT NULL,
+  `Cidade` varchar(35) NOT NULL,
+  `Bairro` varchar(30) NOT NULL,
+  `Estado` char(2) NOT NULL,
+  `Telefone` varchar(25) NOT NULL,
+  `Celular` varchar(25) DEFAULT NULL,
+  `Grupo_Sangue` varchar(10) DEFAULT NULL,
+  `Doador` int(4) DEFAULT NULL,
+  PRIMARY KEY (`Codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `turmas` (
+  `Codigo_Turma` int(4) NOT NULL,
+  `Descricao` varchar(30) NOT NULL,
+  `Grau` int(4) NOT NULL,
+  `Serie` int(4) NOT NULL,
+  `Turno` char(1) NOT NULL,
+  PRIMARY KEY (`Codigo_Turma`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+SELECT * FROM ALUNOS
+GO
+SELECT Nome,Data_Nascimento FROM ALUNOS WHERE Nome_Mae = 'MARIA SILVA' 
+select * from alunos
+
+SELECT *
+FROM ALUNOS
+WHERE Nome Like '%SILVA%'
+
+CREATE VIEW VW_LISTAALUNOS
+AS SELECT Matricula,Nome,Data_Nascimento
+FROM ALUNOS;
+
+SELECT * FROM VW_LISTAALUNOS;
+
+SELECT * FROM VW_LISTAALUNOS LIMIT 3;
+
+CREATE VIEW VW_LISTAALUNOS2
+AS SELECT Matricula,Nome,Data_Nascimento
+FROM ALUNOS
+WHERE Nome='PEDRO ANTONIO SILVA';
+
+SELECT * FROM VW_LISTAALUNOS2;
+
+ismael.vasconcelos@etec.sp.gov.br
