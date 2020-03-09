@@ -1,5 +1,6 @@
 /* Inserção de Dados na tabela Alunos */
-INSERT INTO `alunos`(Nome,Data_Nascimento,Idade,CPF,RG_Identidade,Nome_Pai,Nome_Mae,Endereco,Numero,Cidade,Estado,Bairro,Telefone,Celular,Chamarpor,Alergia,Grupo_Sangue,Doador) VALUES ('PEDRO ANTONIO SILVA', '1997-02-28', 22, '100.526.878-78', '18.528.639', 'PEDRO SILVA', 'MARIA SILVA', 'RUA TREZE DE MAIO', 352, 'VALINHOS', 'SP', 'CENTRO', '19 2627-2325', '19 99999-8888', 'PEDRINHO', 'DERIVADOS DE LEITE', 'o+', 2);
+
+INSERT INTO `alunos`(Nome,Data_Nascimento,Idade,CPF,RG_Identidade,Nome_Pai,Nome_Mae,Endereco,Numero,Cidade,Estado,Bairro,Telefone,Celular,Chamarpor,Alergia,Grupo_Sangue,Doador) VALUES ('PEDRO ANTONIO SILVA', '1997-02-28', 23, '100.526.878-78', '18.528.639', 'PEDRO SILVA', 'MARIA SILVA', 'RUA TREZE DE MAIO', 352, 'VALINHOS', 'SP', 'CENTRO', '19 2627-2325', '19 99999-8888', 'PEDRINHO', 'DERIVADOS DE LEITE', 'o+', 2);
 
 INSERT INTO `alunos`(Nome,Data_Nascimento,Idade,CPF,RG_Identidade,Nome_Pai,Nome_Mae,Endereco,Numero,Cidade,Estado,Bairro,Telefone,Celular,Chamarpor,Alergia,Grupo_Sangue,Doador) VALUES ('MARCOS SILVA','1998-03-26',21,'100.526.999-71','17.529.640','JOSÉ SILVA','MARIANA SILVA','RUA DOIS DE MAIO',150,'VALINHOS','SP','CENTRO','19 2627-2525','19 99999-7777','PANO','DERIVADOS DE LEITE','o-',2);
 
